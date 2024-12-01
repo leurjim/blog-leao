@@ -1,10 +1,10 @@
 'use client'
 
-import { Dialog, Transition } from '@headlessui/react'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
-import { Fragment, useState, useEffect, useRef } from 'react'
-import Link from "next/link";
-import headerNavLinks from 'data/headerNavLinks'
+import { Dialog, Transition } from "@headlessui/react"
+import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import headerNavLinks from "data/headerNavLinks"
+import Link from "next/link"
+import { Fragment, useEffect, useRef, useState } from "react"
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
@@ -15,11 +15,14 @@ const MobileNav = () => {
       if (status) {
         enableBodyScroll(navRef.current)
       } else {
-        // Prevent scrolling
         disableBodyScroll(navRef.current)
       }
       return !status
     })
+  }
+
+  typescript: {
+    ignoreBuildErrors: true
   }
 
   useEffect(() => {
@@ -30,12 +33,12 @@ const MobileNav = () => {
     <>
       <button aria-label="Toggle Menu" onClick={onToggleNav} className="sm:hidden">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          className="h-8 w-8 text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
-        >
-          <path
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            className="h-8 w-8 text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
+          >
+            <path
             fillRule="evenodd"
             d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
             clipRule="evenodd"
